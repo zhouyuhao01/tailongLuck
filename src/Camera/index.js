@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Webcam from "react-webcam";
+import { styles } from './index.scss'
 // import {Row, Col} from "antd";
 
 
@@ -34,24 +35,21 @@ class Camera extends Component {
 
     render() {
         return(
-            <div style={{display:"flex"}} >
-                {/* <Row>
-                    <Col span={6}> 
-                        
-                    </Col>
-                </Row> */}
+            <div style={{}} className={styles}>
                 <div>
                     <Webcam 
                         style={{margin:"200"}}
-                        width={200} height={200} 
+                        width={360} height={270} 
                         ref={this.setRef}
-                        screenshotFormat="image/jpg" onUserMedia={() => {
+                        screenshotFormat="image/png" onUserMedia={() => {
                     }} />
-                    <button onClick={this.capture}>Capture photo</button>
+                    {/*
+                        <button onClick={this.capture}>Capture photo</button>
+                    */}
                 </div>
-                
-                <img width={600} height={600} src={this.state.imageSrc} />
-                
+                {/*
+                    <img width={360} height={270} src={this.state.imageSrc} alt="" />
+                */}
             </div>
             )
     }

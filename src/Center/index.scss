@@ -1,0 +1,67 @@
+@import '../base.scss';
+:local(.styles) {
+  display: inline-block;
+  background: white;
+  border-radius: 8px;
+  height: 466px;
+  width: 360px;
+  padding: 16px;
+  .color-block {
+    width: 100%;
+    height: 132px;
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: left;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    &.green {
+      color: $green;
+      .meter-value {
+        background: $green;
+      }
+    }
+    &.purple {
+      color: $purple;
+      .meter-value {
+        background: $purple;
+      }
+    }
+    &.red {
+      color: $red;
+      .meter-value {
+        background: $red;
+      }
+    }
+    display: flex;
+    justify-content: space-evenly;
+    .examples-sec {
+      .examples-block {
+        height: 103px;
+        width: 103px;
+        background: #ededee;
+      }
+    }
+    .status-sec {
+      width: 230px;
+      .status-meter {
+        height: 30px;
+        width: 100%;
+        background: #ededee;
+        .meter-value {
+          height: 100%;
+          transition: width ease 1s;
+        }
+      }
+      .status-info {
+        margin-top: 20px;
+        font-size: 24px;
+        vertical-align: middle;
+        .emoji {
+          font-size: 32px;
+        }
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.main {
+  text-align: center;
+  padding: 30px 20px 20px;
+  .camera-sec {
+    align-items: center;
+    display: flex;
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 16vh;
+  }
+  .led-sec {
+    position: relative;
+    display: inline-block;
+    height: 450px;
+    margin-left: -20px;
+    .bulb {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 18px;
+      height: 34px;
+      margin-top: -13px;
+      background-image: url(static/leds.png);
+      background-size: 60px;
+      background-repeat: no-repeat;
+      background-position-x: 0;
+      background-position-y: 0;
+      &.bulb-green {
+
+      }
+      &.bulb-purple {
+        background-position-x: -22px;
+      }
+      &.bulb-red {
+        background-position-x: -42px;
+      }
+    }
+  }
+}
