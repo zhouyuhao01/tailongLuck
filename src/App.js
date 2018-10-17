@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div >
-        tailong luck
+        <Camera width={500} height={500} ></Camera>
       </div>
     );
   }
