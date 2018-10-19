@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Webcam from "react-webcam";
+import { Button } from 'antd'
 import { styles } from './index.scss'
 // import {Row, Col} from "antd";
 
@@ -25,6 +26,7 @@ class Camera extends Component {
         this.setState({
             imageSrc:imageSrc
         })
+        this.props.onCapture(imageSrc)
     };
     
     
@@ -39,13 +41,11 @@ class Camera extends Component {
                 <div>
                     <Webcam 
                         style={{margin:"200"}}
-                        width={360} height={270} 
+                        width={640} height={480} 
                         ref={this.setRef}
                         screenshotFormat="image/png" onUserMedia={() => {
                     }} />
-                    {/*
-                        <button onClick={this.capture}>Capture photo</button>
-                    */}
+                    <Button className="capture-btn" type="primary" size='large' onClick={this.capture}>拍！</Button>
                 </div>
                 {/*
                     <img width={360} height={270} src={this.state.imageSrc} alt="" />

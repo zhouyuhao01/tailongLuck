@@ -41,7 +41,11 @@ class Center extends Component {
             <div className={"color-block " + emotion.color} key={emotion.emotion}>
               <div className="examples-sec">
                 <p>0 Examples</p>
-                <div className="examples-block"></div>
+                <div className="examples-block">
+                  {
+                    this.props.imgUrl && <img src={this.props.imgUrl} alt=""/>
+                  }
+                </div>
               </div>
               <div className="status-sec">
                 <p>Confidence</p>

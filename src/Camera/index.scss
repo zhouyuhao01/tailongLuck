@@ -2,5 +2,11 @@
   display: inline-block;
   border: 8px solid white;
   border-radius: 8px;
-  height: 270px;
+  min-height: 480px;
+  position: relative;
+  .capture-btn {
+    position: absolute;
+    top: -40px;
+    left: 300px;
+  }
 }

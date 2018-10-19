@@ -1,0 +1,21 @@
+:local(.styles) {
+  .analyzer-sec {
+    position: relative;
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .result-img-sec {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    img {
+      width: 100px;
+    }
+  }
+}

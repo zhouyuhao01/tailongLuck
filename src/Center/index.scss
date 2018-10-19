@@ -38,8 +38,14 @@
     .examples-sec {
       .examples-block {
         height: 103px;
+        line-height: 103px;
         width: 103px;
         background: #ededee;
+        img {
+          width: 100%;
+          height: auto;
+
+        }
       }
     }
     .status-sec {
@@ -50,7 +56,7 @@
         background: #ededee;
         .meter-value {
           height: 100%;
-          transition: width ease 1s;
+          transition: width linear 1s;
         }
       }
       .status-info {
