@@ -7,6 +7,16 @@
     right: 5vw;
     top: 0;
   }
+  .valid-img-sec {
+    width: 480px;
+    height: 640px;
+    border: 18px solid white;
+    border-radius: 40px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
   .camera-sec {
     align-items: center;
     display: flex;

@@ -1,11 +1,11 @@
 export const EMOTION = {
-  0: { name: 'Angry', emoji: '😠' },
-  1: { name: 'Disgust', emoji: '🤢' },
-  2: { name: 'Fear', emoji: '😨' },
-  3: { name: 'Happy', emoji: '😄' },
-  4: { name: 'Sad', emoji: '🙁' },
-  5: { name: 'Surprise', emoji: '😲' },
-  6: { name: 'Neutral', emoji: '😐' },
+  0: { name: '生气', emoji: '😠' },
+  1: { name: '恶心', emoji: '🤢' },
+  2: { name: '害怕', emoji: '😨' },
+  3: { name: '开心', emoji: '😄' },
+  4: { name: '难过', emoji: '🙁' },
+  5: { name: '惊讶', emoji: '😲' },
+  6: { name: '淡然', emoji: '😐' },
 }
 
 export const GENDER = { 0: 'Woman', 1: 'Man' }

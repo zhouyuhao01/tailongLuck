@@ -73,7 +73,7 @@ class App extends Component {
       // this.drawDetections
     )
     if (faces.length > 0) {
-      this.props.onDone(true)
+      this.props.onDone(true, this.img)
     }
   }
 
@@ -131,7 +131,13 @@ class App extends Component {
             image.
           </Message>
         )} */}
-        {faces.length > 0 && <Results faces={[faces[0]]} emotions={[emotions[0]]} />}
+        {
+          faces.length > 0 
+          ?
+          <Results faces={[faces[0]]} emotions={[emotions[0]]} />
+          :
+          <Results faces={['']} emotions={[['', '', '', '']]} />
+        }
       </div>
     )
   }

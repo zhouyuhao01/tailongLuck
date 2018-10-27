@@ -5,7 +5,7 @@ const MODEL_PATH =
   'mtcnn_model-weights_manifest.json'
 
 const PARAMS = {
-  minFaceSize: 50,
+  minFaceSize: 200,
   scaleFactor: 0.709,
   maxNumScales: 10,
   scoreThresholds: [0.7, 0.7, 0.7],
