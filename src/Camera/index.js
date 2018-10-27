@@ -22,6 +22,7 @@ class Camera extends Component {
     };
 
     capture = () => {
+        if (this.props.done) return
         const imageSrc = this.webcam.getScreenshot();
         this.setState({
             imageSrc:imageSrc
@@ -31,21 +32,36 @@ class Camera extends Component {
     
     
     componentDidMount() {
-        
+        const self = this
+        this.interval = setInterval(() => {
+            self.capture()
+        }, 500)
     }
+
+    componentWillUnmount() {
+        clearInterval(this.interval)
+    }
+    
 
 
     render() {
+        const videoConstraints = {
+            width: 480,
+            height: 640,
+            facingMode: "user",
+        }
         return(
             <div style={{}} className={styles}>
                 <div>
                     <Webcam 
                         style={{margin:"200"}}
-                        width={640} height={480} 
+                        width={480} height={640} 
                         ref={this.setRef}
+                        videoConstraints={videoConstraints}
+                        screenshotQuality={1}
                         screenshotFormat="image/png" onUserMedia={() => {
                     }} />
-                    <Button className="capture-btn" type="primary" size='large' onClick={this.capture}>拍！</Button>
+                    {/* <Button className="capture-btn" type="primary" size='large' onClick={this.capture}>拍！</Button> */}
                 </div>
                 {/*
                     <img width={360} height={270} src={this.state.imageSrc} alt="" />

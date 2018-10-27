@@ -26,23 +26,21 @@ const Results = ({ faces, emotions }) => (
     <div className="result-img-sec">
       {faces.map((face, i) => (
         <div key={i} >
-          <div >
-            <img
-              src={face.toDataURL()}
-              alt={`face ${i + 1}`}
-              className="block col-12"
-            />
-            <div>
-              {emotions[i].slice(0, 2).map(({ label, value }) => (
-                <div key={label.name} >
-                  <div>
-                    {label.emoji}
-                    {label.name}
-                  </div>
-                  <div>{fmt(value)}</div>
+          <img
+            src={face.toDataURL()}
+            alt={`face ${i + 1}`}
+            className="block col-12"
+          />
+          <div>
+            {emotions[i].slice(0, 2).map(({ label, value }) => (
+              <div key={label.name} >
+                <div>
+                  {label.emoji}
+                  {label.name}
                 </div>
-              ))}
-            </div>
+                <div>{fmt(value)}</div>
+              </div>
+            ))}
           </div>
         </div>
       ))}

@@ -1,12 +1,16 @@
 :local(.styles) {
   display: inline-block;
-  border: 8px solid white;
-  border-radius: 8px;
+  border: 18px solid white;
+  border-radius: 40px;
+  overflow: hidden;
   min-height: 480px;
   position: relative;
+
   .capture-btn {
     position: absolute;
-    top: -40px;
+    top: 40px;
     left: 300px;
+    width: 60px;
+    height: 40px
   }
 }

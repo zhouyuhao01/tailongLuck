@@ -44,6 +44,7 @@ class App extends Component {
   }
 
   handleImgLoaded = () => {
+    if (this.props.done) return 
     this.clearCanvas()
     this.analyzeFaces()
   }
@@ -59,6 +60,7 @@ class App extends Component {
 
     // get face bounding boxes and canvases
     const faceResults = await this.models.face.findAndExtractFaces(this.img)
+    console.log()
     const { detections, faces } = faceResults
 
     // get emotion predictions
@@ -68,8 +70,11 @@ class App extends Component {
 
     this.setState(
       { loading: false, detections, faces, emotions },
-      this.drawDetections
+      // this.drawDetections
     )
+    if (faces.length > 0) {
+      this.props.onDone(true)
+    }
   }
 
   clearCanvas = () => {
@@ -118,15 +123,15 @@ class App extends Component {
             />
           </div>
         )}
-        {!ready && <Message>take a picture</Message>}
+        {/* {!ready && <Message>take a picture</Message>}
         {loading && <Message>Analyzing image...</Message>}
         {noFaces && (
           <Message bg="red" color="white">
             <strong>Sorry!</strong> No faces were detected. Please try another
             image.
           </Message>
-        )}
-        {faces.length > 0 && <Results faces={faces} emotions={emotions} />}
+        )} */}
+        {faces.length > 0 && <Results faces={[faces[0]]} emotions={[emotions[0]]} />}
       </div>
     )
   }

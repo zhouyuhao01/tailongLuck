@@ -1,9 +1,11 @@
 @import '../base.scss';
 :local(.styles) {
   display: inline-block;
-  border: 8px solid white;
-  border-radius: 8px;
-  min-height: 450px;
-  width: 300px;
-  background: $light-grey;
+  border: 16px solid white;
+  border-radius: 40px;
+  height: 500px;
+  width: 500px;
+  margin-right: 5vw;
+  background: #f3f5d5ba;// $light-grey;
+  padding: 20px;
 }
