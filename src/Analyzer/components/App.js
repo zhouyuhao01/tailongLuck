@@ -57,13 +57,18 @@ class App extends Component {
       loading: true
     })
     if (!this.models) return
-
+    if (this.props.done) return
     // get face bounding boxes and canvases
     const faceResults = await this.models.face.findAndExtractFaces(this.img)
-    console.log()
     const { detections, faces } = faceResults
 
+    if (faces.length === 0) return 
+    const audio = document.getElementById("camera_audio")
+    audio.play()
     // get emotion predictions
+    if (faces.length > 0) {
+      this.props.onDone(true, this.img)
+    }
     let emotions = await Promise.all(
       faces.map(async face => await this.models.emotion.classify(face))
     )
@@ -72,9 +77,7 @@ class App extends Component {
       { loading: false, detections, faces, emotions },
       // this.drawDetections
     )
-    if (faces.length > 0) {
-      this.props.onDone(true, this.img)
-    }
+    
   }
 
   clearCanvas = () => {
@@ -106,7 +109,7 @@ class App extends Component {
     const { ready, loading, faces, emotions } = this.state
     const { imgUrl } = this.props
     const noFaces = ready && !loading && imgUrl && !faces.length && (this.img && this.img.complete)
-
+    const _award = window.getStorageAward()
     return (
       <div className={this.props.className}>
         {imgUrl && (
@@ -138,6 +141,16 @@ class App extends Component {
           :
           <Results faces={['']} emotions={[['', '', '', '']]} />
         }
+        {
+          (faces.length > 0 ) && this.props.done && _award
+          ?
+          <div className="award-sec">
+            恭喜你获得{_award}等奖
+          </div>
+          :
+          null
+        }
+          
       </div>
     )
   }

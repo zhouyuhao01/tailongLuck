@@ -8,15 +8,18 @@
   position: relative;
   width: 480px;
   height: 640px;
+  background: #ffffffb0;
   .loading-number {
     position: absolute;
     top: 0;
     left: 0;
     width: 480px;
     height: 640px;
-    font-size: 160px;
+    font-size: 260px;
+    font-weight: bold;
     line-height: 640px;
     text-align: center;
+    background: #ffffffb0;
     &.color-3 {
       color: $green;
     }

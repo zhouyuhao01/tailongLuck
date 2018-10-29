@@ -22,10 +22,12 @@
     display: flex;
     width: 90vw;
     margin: 0 auto;
-    margin-top: 10vh;
+    // margin-top: 10vh;
     // justify-content: center;
     justify-content: space-between;
-    align-items: flex-end;
+    // align-items: flex-end;
+    align-items: center;
+    margin-top: 10vw;
   }
   .led-sec {
     position: relative;

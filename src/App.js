@@ -14,6 +14,9 @@ class App extends Component {
       done: false
     }
   }
+  componentDidMount() {
+  }
+  
   render() {
     return (
       <div className="main">
