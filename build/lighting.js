@@ -7,7 +7,7 @@ console.log('app', app)
 app.stage = new PIXI.display.Stage();
 
 var background = new PIXI.extras.TilingSprite(
-    PIXI.Texture.fromImage('./bg-4.jpg'),
+    PIXI.Texture.fromImage('/bg-4.jpg'),
     WIDTH,
     HEIGHT);
 app.stage.addChild(background);
@@ -29,7 +29,7 @@ lightingSprite.blendMode = PIXI.BLEND_MODES.MULTIPLY;
 
 app.stage.addChild(lightingSprite);
 
-var bunnyTexture = PIXI.Texture.fromImage("./bunny.png");
+var bunnyTexture = PIXI.Texture.fromImage("/bunny.png");
 function updateBunny(bunny) {
     bunny.x += bunny.vx;
     bunny.y += bunny.vy;
