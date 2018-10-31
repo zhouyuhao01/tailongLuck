@@ -15,8 +15,8 @@ const Summary = ({ total, happy }) => (
     {happy === 1 ? 'is' : 'are'} happy.
   </Message>
 )
-const colorList = ['red', 'green', 'purple', ]
-const Results = ({ faces, emotions }) => (
+const colorList = ['purple', 'red', 'green', , ]
+const Results = ({ faces, emotions, percent }) => (
   <div styles={{marginTop: "-177px", marginLeft: "-15px"}}>
   {/* <div > */}
     {/* <Summary
@@ -32,15 +32,19 @@ const Results = ({ faces, emotions }) => (
             className="block col-12"
           />
           <div className="detail-sec">
-            {emotions[i].slice(0, 3).map(({ label, value }, index) => (
+            {emotions[i].slice(0, 1).map(({ label, value }, index) => (
               <div key={index} >
-                <div>
+                {/* <div>
                   {label ? label.emoji : '😐'} <span>   </span>
                   {label ? label.name : ''}
-                </div>
+                </div> */}
+               
                 <div className="status-meter">
-                  <span>{value ? fmt(value) : '0%'}</span>
-                  <div className={"meter-value " +  colorList[index]} style={{width: value ? fmt(value) : '0%'}}></div>
+                  
+                  {
+                    percent ? <span>{percent + '分'}</span> : <span>您的笑容</span>
+                  }
+                  <div className={"meter-value " +  colorList[index]} style={{width: percent + '%' || '0%'}}></div>
                 </div>
               </div>
             ))}

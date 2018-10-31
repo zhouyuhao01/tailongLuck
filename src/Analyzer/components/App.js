@@ -2,8 +2,9 @@ import debounce from 'lodash.debounce'
 import React, { Component } from 'react'
 import Message from './Message'
 import Results from './Results'
-
+import _ from 'lodash'
 import sampleImg from '../img/sample.jpg'
+import awardImg from '../../static/award.png'
 import { FaceFinder } from '../ml/face'
 import { EmotionNet } from '../ml/models'
 import { readFile, nextFrame, drawBox, drawText } from '../util'
@@ -15,6 +16,7 @@ class App extends Component {
     detections: [],
     faces: [],
     emotions: [],
+    percent: 0
   }
 
   componentDidMount() {
@@ -46,7 +48,15 @@ class App extends Component {
   handleImgLoaded = () => {
     if (this.props.done) return 
     this.clearCanvas()
-    this.analyzeFaces()
+    // this.analyzeFaces()
+    this.mockAnalyzeFaces()
+  }
+
+  mockAnalyzeFaces = () => {
+    this.setState({
+      percent: _.random(60, 100)
+    })
+    this.props.onDone(true, this.img)
   }
 
   handleResize = debounce(() => this.drawDetections(), 100)
@@ -134,17 +144,20 @@ class App extends Component {
             image.
           </Message>
         )} */}
-        {
+        {/* {
           faces.length > 0 
           ?
           <Results faces={[faces[0]]} emotions={[emotions[0]]} />
           :
           <Results faces={['']} emotions={[['', '', '', '']]} />
-        }
+        } */}
+        <Results faces={['']} emotions={[['', '', '', '']]} percent={this.props.done ? this.state.percent : 0}/>
+
         {
-          (faces.length > 0 ) && this.props.done && _award
+          this.props.done && _award
           ?
-          <div className="award-sec">
+          <div className="award-sec animated tada infinite ">
+            <img src={awardImg} alt=""/>
             恭喜你获得{_award}等奖
           </div>
           :
