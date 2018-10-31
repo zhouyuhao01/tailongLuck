@@ -16,7 +16,7 @@ const Summary = ({ total, happy }) => (
   </Message>
 )
 const colorList = ['purple', 'red', 'green', , ]
-const Results = ({ faces, emotions, percent }) => (
+const Results = ({ imgUrl, faces, emotions, percent }) => (
   <div styles={{marginTop: "-177px", marginLeft: "-15px"}}>
   {/* <div > */}
     {/* <Summary
@@ -26,11 +26,12 @@ const Results = ({ faces, emotions, percent }) => (
     <div className="result-img-sec">
       {faces.map((face, i) => (
         <div key={i} >
-          <img
-            src={face ? face.toDataURL() : chickImg}
+          <div
             alt={`face ${i + 1}`}
-            className="block col-12"
-          />
+            className="block col-12 img-sec"
+          >
+            <img src={imgUrl ? imgUrl : chickImg} className={imgUrl ? "has-img" : 'no-img'} alt=""/>
+          </div>
           <div className="detail-sec">
             {emotions[i].slice(0, 1).map(({ label, value }, index) => (
               <div key={index} >

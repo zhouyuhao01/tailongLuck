@@ -42,6 +42,7 @@ class App extends Component {
   initPredict = () => {
     if (!this.img || !this.img.complete) return
     this.setState({ loading: true })
+    
     this.analyzeFaces()
   }
 
@@ -49,15 +50,44 @@ class App extends Component {
     if (this.props.done) return 
     this.clearCanvas()
     // this.analyzeFaces()
-    this.mockAnalyzeFaces()
+    setTimeout(() =>
+      this.mockAnalyzeFaces(), 1500
+    )
   }
 
   mockAnalyzeFaces = () => {
+    const _award = window.getStorageAward()
+    let _percent = 0
+    
+    if (+_award === 1) {
+      _percent =  _.random(95, 100)
+    } else if (+_award === 2) {
+      _percent =  _.random(90, 94)
+    } else if (+_award === 3) {
+      _percent =  _.random(85, 89)
+    } else if (+_award === 4) {
+      _percent =  _.random(80, 84)
+    } else if (+_award === 5) {
+      _percent =  _.random(75, 79)
+    } else if (+_award === 6) {
+      _percent =  _.random(70, 74)
+    } else if (+_award === 7) {
+      _percent =  _.random(65, 69)
+    }
     this.setState({
-      percent: _.random(60, 100)
+      percent: _percent
     })
     this.props.onDone(true, this.img)
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.done !== this.props.done) {
+      
+      setTimeout(() => this.setState({showAward: nextProps.done}), nextProps.done ? 1500 : 0)
+    }
+    
+  }
+  
 
   handleResize = debounce(() => this.drawDetections(), 100)
 
@@ -151,10 +181,10 @@ class App extends Component {
           :
           <Results faces={['']} emotions={[['', '', '', '']]} />
         } */}
-        <Results faces={['']} emotions={[['', '', '', '']]} percent={this.props.done ? this.state.percent : 0}/>
+        <Results faces={['']} imgUrl={imgUrl} emotions={[['', '', '', '']]} percent={this.props.done ? this.state.percent : 0}/>
 
         {
-          this.props.done && _award
+          this.state.showAward && _award
           ?
           <div className="award-sec animated tada infinite ">
             <img src={awardImg} alt=""/>

@@ -1,6 +1,8 @@
 @import '../base.scss';
 
 :local(.styles) {
+    padding: 0 10px;
+
   .analyzer-sec {
     position: relative;
     canvas {
@@ -22,11 +24,28 @@
       width: 100%;
       // display: flex;
     }
-    img {
+    .img-sec {
       border: 8px solid #fed3e7;
       border-radius: 20px;
       max-width: 100px;
-      max-height: 100px;
+      width: auto;
+      height: 100px;
+      display: block;
+      margin: auto;
+      box-sizing: border-box;
+      overflow: hidden;
+      img {
+        &.no-img {
+          max-width: 100px;
+          max-height: 100%;
+        }
+        
+        &.has-img {
+          transform: scale(.3);
+          margin-top: -260px;
+          margin-left: -200px;
+        }
+      }
       // height: 320px;
     }
     .detail-sec {

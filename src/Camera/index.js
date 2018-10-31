@@ -84,10 +84,10 @@ class Camera extends Component {
                             audio.play()
                         }, 1500)
                         
-                        setTimeout(() => {
-                            this.setState({loadingNumber: 0})
-                            this.props.onDone(false, false)
-                        }, 10000)
+                        // setTimeout(() => {
+                        //     this.setState({loadingNumber: 0})
+                        //     this.props.onDone(false, false)
+                        // }, 10000)
                         // self.interval = setInterval(() => {
                         //     self.capture()
                         // }, 1000)

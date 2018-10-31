@@ -3,9 +3,48 @@
   display: inline-block;
   border: 16px solid white;
   border-radius: 40px;
-  height: 500px;
-  width: 500px;
+  height: 600px;
+  width: 504px;
   margin-right: 5vw;
-  background: #f3f5d5ba;// $light-grey;
-  padding: 20px;
+  background: #f3f5d5ba;
+  position: relative;
+  overflow: hidden;
+  padding-top: 40px;
+  .award-btn-sec {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    &>div {
+      width: 72px;
+      height: 40px;
+      display: inline-block;
+      &.award-1 {
+        background: #FF0000;
+      }
+      &.award-2 {
+        background: #FF7F00;
+      }
+      &.award-3 {
+        background: #FFFF00;
+      }
+      &.award-4 {
+        background: #00FF00;
+      }
+      &.award-5 {
+        background: #0000FF;
+      }
+      &.award-6 {
+        background: #4B0082;
+      }
+      &.award-7 {
+        background: #9400D3;
+      }
+     
+    }
+  }
+  #magicwand {
+    position: absolute;
+    top: 0;
+    left: 150px;
+  }
 }
