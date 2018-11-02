@@ -25,9 +25,11 @@ class App extends Component {
             
           <Camera 
             validImg={this.state.validImg}
+            imgUrl={this.state.imgUrl}
             done={this.state.done}
             onCapture={(imgUrl) => this.setState({imgUrl})}
             onDone={(done, validImg) => this.setState({done, validImg})}
+            disableAward={disableAward => this.setState({disableAward})}
           ></Camera>
           
           {/* <img src={line1Img} alt=""/>
@@ -38,7 +40,7 @@ class App extends Component {
             <div className="bulb bulb-purple" style={{top: "244px"}}></div>
             <div className="bulb bulb-red" style={{top: "343px"}}></div>
           </div> */}
-          <Result imgUrl={this.state.imgUrl} done={this.state.done} onDone={(done, validImg) => this.setState({done, validImg})}></Result>
+          <Result disableAward={this.state.disableAward} imgUrl={this.state.imgUrl} done={this.state.done} onDone={(done, validImg) => this.setState({done, validImg})}></Result>
         </div>
       </div>
     );

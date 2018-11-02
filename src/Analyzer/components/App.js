@@ -16,7 +16,8 @@ class App extends Component {
     detections: [],
     faces: [],
     emotions: [],
-    percent: 0
+    percent: 0,
+    showPercentNumber: false
   }
 
   componentDidMount() {
@@ -51,7 +52,7 @@ class App extends Component {
     this.clearCanvas()
     // this.analyzeFaces()
     setTimeout(() =>
-      this.mockAnalyzeFaces(), 1500
+      this.mockAnalyzeFaces(), 3000
     )
   }
 
@@ -77,13 +78,19 @@ class App extends Component {
     this.setState({
       percent: _percent
     })
+    setTimeout(() => this.setState({
+      showPercentNumber: true
+    }), 1000)
     this.props.onDone(true, this.img)
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.done !== this.props.done) {
-      
-      setTimeout(() => this.setState({showAward: nextProps.done}), nextProps.done ? 1500 : 0)
+      setTimeout(() => this.setState({
+        showAward: nextProps.done,
+        percent: !nextProps.done ? 0 : this.state.percent,
+        showPercentNumber: !nextProps.done ? false : this.state.showPercentNumber,
+      }), nextProps.done ? 1500 : 0)
     }
     
   }
@@ -181,7 +188,7 @@ class App extends Component {
           :
           <Results faces={['']} emotions={[['', '', '', '']]} />
         } */}
-        <Results faces={['']} imgUrl={imgUrl} emotions={[['', '', '', '']]} percent={this.props.done ? this.state.percent : 0}/>
+        <Results faces={['']} imgUrl={imgUrl} emotions={[['', '', '', '']]} percent={this.state.percent} showPercentNumber={this.state.showPercentNumber} />
 
         {
           this.state.showAward && _award

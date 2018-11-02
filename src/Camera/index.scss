@@ -4,19 +4,19 @@
   border: 18px solid white;
   border-radius: 40px;
   overflow: hidden;
-  min-height: 480px;
+  min-height: 420px;
   position: relative;
-  width: 480px;
-  height: 640px;
+  width: 420px;
+  height: 560px;
   background: #ffffffb0;
   .loading-number {
     position: absolute;
     top: 0;
     left: 0;
-    width: 480px;
-    height: 640px;
+    width: 420px;
+    height: 560px;
     font-weight: bold;
-    line-height: 640px;
+    line-height: 560px;
     text-align: center;
     background: #ffffffb0;
     span.number {

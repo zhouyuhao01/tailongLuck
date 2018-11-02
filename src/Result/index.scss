@@ -3,19 +3,20 @@
   display: inline-block;
   border: 16px solid white;
   border-radius: 40px;
-  height: 600px;
-  width: 504px;
+  height: 560px;
+  width: 420px;
   margin-right: 5vw;
   background: #f3f5d5ba;
   position: relative;
   overflow: hidden;
   padding-top: 40px;
+  box-sizing: border-box;
   .award-btn-sec {
     position: absolute;
     bottom: -5px;
     left: 0;
     &>div {
-      width: 72px;
+      width: 55.4px;
       height: 40px;
       display: inline-block;
       &.award-1 {
@@ -45,6 +46,12 @@
   #magicwand {
     position: absolute;
     top: 0;
-    left: 150px;
+    left: 115px;
   }
+  #magic_tail {
+    position: absolute;
+    top: -43px;
+    left: 90px;
+  }
+      
 }

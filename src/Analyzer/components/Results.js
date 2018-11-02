@@ -16,7 +16,7 @@ const Summary = ({ total, happy }) => (
   </Message>
 )
 const colorList = ['purple', 'red', 'green', , ]
-const Results = ({ imgUrl, faces, emotions, percent }) => (
+const Results = ({ imgUrl, faces, emotions, percent, showPercentNumber }) => (
   <div styles={{marginTop: "-177px", marginLeft: "-15px"}}>
   {/* <div > */}
     {/* <Summary
@@ -43,7 +43,7 @@ const Results = ({ imgUrl, faces, emotions, percent }) => (
                 <div className="status-meter">
                   
                   {
-                    percent ? <span>{percent + '分'}</span> : <span>您的笑容</span>
+                    percent ? <span key={2} style={{opacity: showPercentNumber ? 1 : 0 }}><span>{percent}</span>分</span> : <span>您的笑容</span>
                   }
                   <div className={"meter-value " +  colorList[index]} style={{width: percent + '%' || '0%'}}></div>
                 </div>

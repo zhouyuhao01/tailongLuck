@@ -1,4 +1,4 @@
-var WIDTH = window.innerWidth, HEIGHT = window.innerHeight, PAD = 80;
+var WIDTH = window.innerWidth, HEIGHT = window.outerHeight, PAD = 80;
 var app = new PIXI.Application(WIDTH, HEIGHT);
 document.body.appendChild(app.view);
 

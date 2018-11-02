@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { styles } from './index.scss'
 import Analyzer from '../Analyzer'
 import MagicWand from '../MagicWand'
+import MagicTail from '../MagicTail'
 import _ from 'lodash'
 
 export default class Result extends Component {
@@ -26,7 +27,7 @@ export default class Result extends Component {
           this.setState({
             showWand: false,
           })
-        }, 2000)
+        }, 3000)
       })
     }
   }
@@ -36,14 +37,20 @@ export default class Result extends Component {
       <div className={styles}>
         <Analyzer {...this.props}></Analyzer>
         {
-          this.state.showWand
+          false//this.state.showWand
           &&
           <MagicWand></MagicWand>
         }
+        {
+          this.state.showWand
+          &&
+          <MagicTail></MagicTail>
+        }
+
         <div className="award-btn-sec">
           {
             this.state.orderList.map((item, index) => (
-              <div class={"award-" + item} key={index} onClick={() => window.setStorageAward(index + 1)}></div>
+              <div className={"award-" + item + ' animated pulse infinite'} key={index} onClick={() => !this.props.disableAward && window.setStorageAward(index + 1)}></div>
             ))
           }
         </div>

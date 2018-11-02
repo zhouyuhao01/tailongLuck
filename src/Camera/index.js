@@ -50,8 +50,8 @@ class Camera extends Component {
         const imageSrc = this.webcam.getScreenshot();
         this.setState({
             imageSrc:imageSrc
-        })
-        this.props.onCapture(imageSrc)
+        }, () => this.props.onCapture(imageSrc))
+        
     };
     
     
@@ -63,12 +63,14 @@ class Camera extends Component {
 
     startCapture = () => {
         this.props.onDone(false, false)
+        this.props.onCapture('')
         this.flow()
     }
 
     flow = () => {
         clearInterval(this.interval)
         clearInterval(this.loadingInterval)
+        this.props.disableAward(true)
         this.setState({
             loadingNumber: 4
         }, () => {
@@ -80,14 +82,19 @@ class Camera extends Component {
                     if (self.state.loadingNumber === 0) {
                         setTimeout(() => {
                             self.capture()
+                        }, 1000)
+                        setTimeout(() => {
                             const audio = document.getElementById("camera_audio")
                             audio.play()
-                        }, 1500)
+                        }, 200)
+                            
                         
-                        // setTimeout(() => {
-                        //     this.setState({loadingNumber: 0})
-                        //     this.props.onDone(false, false)
-                        // }, 10000)
+                        setTimeout(() => {
+                            this.setState({loadingNumber: 0})
+                            this.props.onDone(true, '')
+                            this.props.disableAward(false)
+                            // this.props.onCapture('')
+                        }, 10000)
                         // self.interval = setInterval(() => {
                         //     self.capture()
                         // }, 1000)
@@ -108,7 +115,7 @@ class Camera extends Component {
             facingMode: "user",
         }
 
-        const showImg = this.props.validImg && (this.state.loadingNumber <= 0)
+        const showImg = this.props.imgUrl && (this.state.loadingNumber <= 0)
         
         return(
             <div style={{}} className={styles}>
@@ -131,10 +138,10 @@ class Camera extends Component {
                     zIndex: -1
                 }}>
                         
-                    <img src={this.props.validImg && this.props.validImg.src} alt="" style={{display: showImg ? 'block' : 'none'}} />
+                    <img src={this.props.imgUrl} alt="" style={{display: showImg ? 'block' : 'none'}} />
                     <Webcam 
                         style={{margin:"200", display: !showImg ? 'block' : 'none'}}
-                        width={480} height={640} 
+                        width={420} height={560} 
                         ref={this.setRef}
                         videoConstraints={videoConstraints}
                         screenshotQuality={1}
