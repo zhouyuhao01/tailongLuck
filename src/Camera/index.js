@@ -93,6 +93,9 @@ class Camera extends Component {
                             this.setState({loadingNumber: 0})
                             this.props.onDone(true, '')
                             this.props.disableAward(false)
+                            this.setState({
+                                imageSrc: ''
+                            })
                             // this.props.onCapture('')
                         }, 10000)
                         // self.interval = setInterval(() => {
@@ -115,7 +118,7 @@ class Camera extends Component {
             facingMode: "user",
         }
 
-        const showImg = this.props.imgUrl && (this.state.loadingNumber <= 0)
+        const showImg = this.state.imageSrc && (this.state.loadingNumber <= 0)
         
         return(
             <div style={{}} className={styles}>
@@ -138,7 +141,7 @@ class Camera extends Component {
                     zIndex: -1
                 }}>
                         
-                    <img src={this.props.imgUrl} alt="" style={{display: showImg ? 'block' : 'none'}} />
+                    <img src={this.state.imageSrc} alt="" style={{display: showImg ? 'block' : 'none'}} />
                     <Webcam 
                         style={{margin:"200", display: !showImg ? 'block' : 'none'}}
                         width={420} height={560} 
