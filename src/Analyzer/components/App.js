@@ -195,7 +195,7 @@ class App extends Component {
           ?
           <div className="award-sec animated tada infinite ">
             <img src={awardImg} alt=""/>
-            恭喜你获得{_award}等奖
+            恭喜你获得<span style={{fontSize: 60}}>{_award}</span>等奖
           </div>
           :
           null
