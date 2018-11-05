@@ -1,7 +1,8 @@
 @import '../base.scss';
 :local(.styles) {
   display: inline-block;
-  border: 18px solid white;
+  border: 18px solid #fd8e03;
+  transition: all ease 1s;
   border-radius: 40px;
   overflow: hidden;
   min-height: 420px;
@@ -29,15 +30,7 @@
       color: #f79265;
       display: block;
     }
-    &.color-3 {
-      color: $green;
-    }
-    &.color-2 {
-      color: $purple;
-    }
-    &.color-1 {
-      color: $red;
-    }
+    
   }
   .capture-btn {
     position: fixed;

@@ -79,6 +79,7 @@ class Camera extends Component {
                 self.setState({
                     loadingNumber: self.state.loadingNumber - 1
                 }, () => {
+                    this.props.changeColor(this.state.loadingNumber)
                     if (self.state.loadingNumber === 0) {
                         setTimeout(() => {
                             self.capture()
@@ -121,7 +122,7 @@ class Camera extends Component {
         const showImg = this.state.imageSrc && (this.state.loadingNumber <= 0)
         
         return(
-            <div style={{}} className={styles}>
+            <div style={{}} className={styles + ` color-border-${this.props.color}`}>
                 <div 
                     className={"loading-number color-" + this.state.loadingNumber} style={{display: [4,3,2,1].indexOf(this.state.loadingNumber) > -1 ? 'block' : 'none'}}
                 >

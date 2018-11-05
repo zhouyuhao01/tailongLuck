@@ -11,7 +11,8 @@ class App extends Component {
     super()
     this.state = {
       imgUrl: '',
-      done: false
+      done: false,
+      color: 1,
     }
   }
   componentDidMount() {
@@ -20,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="main">
-        <img src={logo} alt="" className="logo"/>
+        <img src={logo} alt="" className="logo  animated pulse infinite"/>
         <div className="camera-sec">
             
           <Camera 
@@ -30,6 +31,8 @@ class App extends Component {
             onCapture={(imgUrl) => this.setState({imgUrl})}
             onDone={(done, validImg) => this.setState({done, validImg})}
             disableAward={disableAward => this.setState({disableAward})}
+            color={this.state.color}
+            changeColor={(color) => this.setState({color})}
           ></Camera>
           
           {/* <img src={line1Img} alt=""/>

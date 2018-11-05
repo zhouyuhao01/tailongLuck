@@ -86,6 +86,11 @@ class App extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.done !== this.props.done) {
+      if (!nextProps.done) {
+        this.setState({
+          showAward: false
+        })
+      }
       setTimeout(() => this.setState({
         showAward: nextProps.done,
         percent: !nextProps.done ? 0 : this.state.percent,
@@ -195,7 +200,7 @@ class App extends Component {
           ?
           <div className="award-sec animated tada infinite ">
             <img src={awardImg} alt=""/>
-            恭喜你获得<span style={{fontSize: 60}}>{_award}</span>等奖
+            恭喜你获得<span style={{fontSize: 60}}>{['一','二','三','四','五','六','七'][+_award - 1] ||''}</span>等奖
           </div>
           :
           null
