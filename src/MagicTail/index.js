@@ -6,8 +6,8 @@ export default class MagicWand extends Component {
     /* super inefficient right now, could be improved */
     var c = document.getElementById('magic_tail'),
     ctx = c.getContext('2d'),
-    cw = c.width = 200,
-		ch = c.height = 240,
+    cw = c.width = 300,
+		ch = c.height = 300,
     rand = function(a,b){return ~~((Math.random()*(b-a+1))+a);},
     dToR = function(degrees){
         return degrees * (Math.PI / 180);
@@ -15,7 +15,7 @@ export default class MagicWand extends Component {
     circle = {
       x: (cw / 2) + 5,
       y: (ch / 2) + 22,
-      radius: 70,
+      radius: 90,
       speed: 5,
       rotation: 0,
       angleStart: 270,

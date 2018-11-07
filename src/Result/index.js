@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { styles } from './index.scss'
 import Analyzer from '../Analyzer'
+import { Icon } from 'antd'
+import yuanbaoImg from '../static/yuanbao.gif'
 import MagicWand from '../MagicWand'
 import MagicTail from '../MagicTail'
 import _ from 'lodash'
@@ -31,6 +33,10 @@ export default class Result extends Component {
       })
     }
   }
+
+  reset = () => {
+    window.dispatchEvent( new Event('reset') )
+  }
   
   render() {
     return (
@@ -50,10 +56,20 @@ export default class Result extends Component {
         <div className="award-btn-sec">
           {
             this.state.orderList.map((item, index) => (
-              <div className={"award-" + item + ' animated pulse infinite'} key={index} onClick={() => !this.props.disableAward && window.setStorageAward(index + 1)}></div>
+              <div className={"award-" + item + ' animated pulse infinite'} key={index} onClick={() => !this.props.disableAward && window.setStorageAward(index + 1)}>
+                <img src={yuanbaoImg} alt=""/>
+              </div>
             ))
           }
         </div>
+        {
+          !this.props.disableAward
+          &&
+          <div className="reset-sec" onClick={() => this.reset()}>
+            重来
+          </div>
+        }
+       
       </div>
     )
   }

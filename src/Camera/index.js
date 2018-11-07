@@ -28,6 +28,13 @@ class Camera extends Component {
             console.log('award', e)
             this.startCapture()
         })
+        const self = this
+        window.addEventListener('reset', () => {
+            self.setState({
+                imageSrc:"",
+                loadingNumber: 0
+            })
+        }, false)
     }
     
 

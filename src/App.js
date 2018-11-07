@@ -16,6 +16,14 @@ class App extends Component {
     }
   }
   componentDidMount() {
+    const self = this
+    window.addEventListener('reset', () => {
+      self.setState({
+        imgUrl: '',
+        done: false,
+        color: 1,
+      })
+    }, false)
   }
   
   render() {
